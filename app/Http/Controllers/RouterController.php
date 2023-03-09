@@ -18,8 +18,8 @@ class RouterController extends Controller
     public function create(Request $request){
         $router = new Router();
         $router->description = $request->input('description');
-        $router->driver_id  = $request->input('driver_id ');
-        $router->vehicle_id  = $request->input('vehicle_id ');
+        $router->driver_id  = $request->input('driver_id');
+        $router->vehicle_id  = $request->input('vehicle_id');
         $router->active = $request->input('active');
         $router->save();
         return json_encode(['msg'=>'added']);
