@@ -18,7 +18,7 @@ class SchedulesController extends Controller
 
     public function create(Request $request){
         $schedules = new Schedules();
-        $schedules->router_id  = $request->input('router_id ');
+        $schedules->router_id  = $request->input('router_id');
         $schedules->week_num = $request->input('week_num');
         $schedules->from = $request->input('from');
         $schedules->to = $request->input('to');
