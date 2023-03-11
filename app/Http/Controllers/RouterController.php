@@ -37,8 +37,8 @@ class RouterController extends Controller
         $active =$request->input('active');
         Router::where('id', $id)->update(
             ['description'=>$description,
-            'driver_id'=>$year,
-            'vehicle_id'=>$make,
+            'driver_id'=>$driver_id,
+            'vehicle_id'=>$vehicle_id,
             'active'=>$active]
         );
         return json_encode(['msg'=>'edited']);
