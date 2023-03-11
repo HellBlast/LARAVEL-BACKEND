@@ -46,8 +46,5 @@ Route::post('/router', [RouterController::class, 'create']);
 Route::delete('/router/{id}', [RouterController::class, 'destroy']);
 Route::put('/router/{id}', [RouterController::class, 'update']);
 
-Route::get('/usuario', [UsuarioController::class, 'datos']);
-Route::get('/usuario/{id}', [UsuarioController::class, 'dato']);
+Route::get('/usuario/{alias}', [UsuarioController::class, 'dato']);
 Route::post('/usuario', [UsuarioController::class, 'create']);
-Route::delete('/usuario/{id}', [UsuarioController::class, 'destroy']);
-Route::put('/usuario/{id}', [UsuarioController::class, 'update']);

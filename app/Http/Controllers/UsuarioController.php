@@ -7,12 +7,19 @@ use App\Models\Usuario;
 
 class UsuarioController extends Controller
 {
-    public function datos(){
-        return Usuario::paginate();
+
+    public function dato($alias){
+        $usuario = Usuario::select('alias', 'contraseña')->where('alias', $alias)->first();
+        return $usuario;
+        //return Usuario::find($id);
     }
 
-    public function dato($id){
-        return Usuario::find($id);
+    public function alias($alias){
+        return Usuario::find($alias);
+    }
+
+    public function contraseña($contraseña){
+        return Usuario::find($contraseña);
     }
 
     public function create(Request $request){
@@ -24,20 +31,4 @@ class UsuarioController extends Controller
         return json_encode(['msg'=>'added']);
     }
 
-    public function destroy($id){
-        Usuario::destroy($id);
-        return json_encode(['msg'=>'removed']);
-    }
-
-    public function update(Request $request, $id){
-        $nombre =$request->input('nombre');
-        $alias =$request->input('alias');
-        $contraseña =$request->input('contraseña');
-        Usuario::where('id', $id)->update(
-            ['nombre'=>$nombre,
-            'alias'=>$alias,
-            'contraseña'=>$contraseña]
-        );
-        return json_encode(['msg'=>'edited']);
-    }
 }
